@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/40613f3d16.js" crossorigin="anonymous"></script>
+    <link rel="icon" href="img/logo Mame.png">
+    <title>Navbar-Sticky-Left</title>
+    <style>
+        * {
+            margin: 0;
+            padding:0 ;
+            box-sizing: border-box;
+            font-family: 'Roboto', sans-serif;
+        }
+        .navbar-link-wrapper {
+            z-index: 2;
+            position: fixed;
+            height: 100vh;
+            background-color: #217ad3;
+            display:flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+        }
+        .nav-link {
+            text-align: center;
+            padding: 1em;
+            transition: 0.3s;
+        }
+        .nav-link:hover {
+            transform: scale(1.1);
+            background-color: #3d8bd8;
+        }
+        .nav-link a {
+            text-decoration: none;
+            color: white;
+            font-size: 35px;
+        }
+        .nav-link:first-child {
+
+            transform: none!important;
+        }
+        .box-wrapper {
+            margin-left:5em;
+            margin-right:0.5em;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            transition: 2s;
+            position: relative;
+        }
+        .box {
+            position: relative;
+            margin: 1em;
+            width: 200px;
+            background-color: #217ad3;
+            height:200px;
+            transition: 0.5s;
+        }
+        .box:hover {
+            transform: scale(1.1);
+        }
+        @keyframes boxmoveup {
+            from {
+            bottom: -100px;
+            opacity: 0;
+            }
+            to {
+            opacity: 1;
+            bottom: 0px;
+            }
+        }
+        @keyframes boxmoveright {
+            from {
+            left: -100px;
+            opacity: 0;
+            }
+            to {
+            opacity: 1;
+            left: 0px;
+            }
+        }
+        @keyframes boxmoveleft {
+            from {
+            right: -100px;
+            opacity: 0;
+            }
+            to {
+            opacity: 1;
+            right: 0px;
+            }
+        }
+        .movetoup {
+            animation: boxmoveup 2s;
+        }
+        .movetoright {
+            animation: boxmoveright 2s;
+        }
+        .movetoleft {
+            animation: boxmoveleft 2s;
+        }
+        
+    </style>
+</head>
+<body>
+    
+        <div class="navbar-link-wrapper">
+            <div class="nav-link" style="position: absolute; top: 0;">
+                <a href=""><img src="/img/logo Mame.png" alt="" width="60px"></a>
+            </div>
+            <div class="nav-link">
+                <a href=""><i class="fas fa-home"></i></a>
+            </div>
+            <div class="nav-link">
+                <a href=""><i class="fas fa-info-circle"></i></a>
+            </div>
+            <div class="nav-link">
+                <a href=""><i class="far fa-address-book"></i></a>
+            </div>
+            <div class="nav-link">
+                <a href=""><i class="fas fa-cog"></i></a>
+            </div>
+        </div>
+        <div class="box-wrapper">
+            <div class="box" style="background-color: #f0932b;"></div>
+            <div class="box" style="background-color: #eb4d4b;"></div>
+            <div class="box" style="background-color: #217ad3;"></div>
+        </div>
+
+
+
+        <script>
+            var elem = document.getElementsByClassName("box")[0];
+            var elem1 = document.getElementsByClassName("box")[1];
+            var elem2 = document.getElementsByClassName("box")[2];
+            window.addEventListener('pageshow', reveal);
+            function reveal() {
+                elem.classList.add("movetoright");
+                elem1.classList.add("movetoup");
+                elem2.classList.add("movetoleft");
+            }
+        </script>
+</body>
+</html>
